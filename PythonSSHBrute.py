@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+#Author: jtoddp14 
+#Updated February 26, 2018
 import paramiko, sys #Paramiko is for SSH, sys returns the integers needed
 target = ''
 username = ''
