@@ -1,4 +1,4 @@
-import paramiko, sys,
+import paramiko, sys
 target = ''
 username = ''
 passList = ''
